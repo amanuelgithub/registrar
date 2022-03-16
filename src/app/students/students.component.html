@@ -7,6 +7,43 @@
 
   <!-- /// SECOND SECTION ///// -->
 
+  <!-- Create a new user section -->
+  <div>
+    <label for="firstName">First Name: </label>
+    <input id="firstName" #firstName />
+
+    <label for="lastName">Last Name: </label>
+    <input id="lastNamet" #lastName />
+
+    <label for="username">username: </label>
+    <input id="username" #username />
+
+    <label for="email">Email: </label>
+    <input id="email" #email />
+
+    <label for="age">Age: </label>
+    <input id="age" #age />
+
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button
+      type="button"
+      class="add-button"
+      (click)="
+        add(
+          firstName.value,
+          lastName.value,
+          username.value,
+          email.value,
+          age.value
+        )
+      "
+    >
+      <!-- firstName.value = '', lastName.value, username.value,email.value, age.value -->
+      Add hero
+    </button>
+  </div>
+  <!-- End Create a new user section -->
+
   <h2>All Students</h2>
   <ul>
     <li *ngFor="let student of students">
@@ -14,6 +51,9 @@
         <span>{{ student.id }} </span>
         <span>{{ student.firstName }} </span>
       </a>
+      <button type="button" title="delete student" (click)="delete(student)">
+        x
+      </button>
     </li>
   </ul>
 

@@ -31,6 +31,13 @@ export class StudentDetailComponent implements OnInit {
     this.studentService.getStudent(id).subscribe(student => this.student = student);
   }
 
+  save(): void{
+    if(this.student){
+      this.studentService.updateStudent(this.student)
+          .subscribe(() => this.goBack());
+    }
+  }
+
   goBack(): void{
     this.location.back();
   }
