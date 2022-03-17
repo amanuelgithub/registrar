@@ -1,9 +1,19 @@
 <div>
   <!-- toolbar -->
   <mat-toolbar color="primary">
-    <button mat-icon-button aria-label="menu icon">
-      <mat-icon>menu</mat-icon>
-    </button>
+    <div>
+      <div *ngIf="sidenavOpened == true">
+        <button mat-icon-button aria-label="menu icon" (click)="close()">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+      <div *ngIf="sidenavOpened == false">
+        <button mat-icon-button aria-label="menu icon" (click)="open()">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+    </div>
+
     <span>Registrar</span>
     <span class="example-spacer"></span>
 
@@ -14,7 +24,13 @@
   <!-- sidenav container -->
   <mat-sidenav-container color="primary">
     <!-- sidenav  -->
-    <mat-sidenav mode="side" opened>
+    <mat-sidenav
+      mode="side"
+      #sidenav
+      (keydown.escape)="close('escape')"
+      disableClose
+      opened
+    >
       <!-- Students -->
       <mat-accordion>
         <mat-expansion-panel
@@ -110,11 +126,11 @@
             <mat-list>
               <mat-list-item>
                 <mat-icon mat-list-icon>add</mat-icon>
-                <div mat-line>Class</div>
+                <div mat-line>Test</div>
               </mat-list-item>
               <mat-list-item routerLink="/tests">
                 <mat-icon mat-list-icon>view_list</mat-icon>
-                <div mat-line>Classes</div>
+                <div mat-line>Tests</div>
               </mat-list-item>
             </mat-list>
           </div>
