@@ -1,16 +1,70 @@
-<div *ngIf="student">
+<div
+  *ngIf="student"
+  style="
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    width: 80%;
+  "
+>
   <h2>{{ student.firstName | uppercase }} Details</h2>
-  <div>id: {{ student.id }}</div>
-  <div>
-    <label for="student-name">Student name: </label>
-    <input
-      id="student-name"
-      [(ngModel)]="student.firstName"
-      placeholder="name"
-    />
+
+  <mat-form-field
+    appearance="outline"
+    style="margin-top: 5px; margin-right: 5px; margin-left: 5px"
+  >
+    <!-- First name -->
+    <mat-label>First Name</mat-label>
+    <input matInput placeholder="First Name" [(ngModel)]="student.firstName" />
+    <mat-hint>first name</mat-hint>
+  </mat-form-field>
+
+  <!-- Last Name -->
+  <mat-form-field
+    appearance="outline"
+    style="margin-top: 5px; margin-right: 5px; margin-left: 5px"
+  >
+    <mat-label>Last Name</mat-label>
+    <input matInput placeholder="Last Name" [(ngModel)]="student.lastName" />
+    <mat-hint>last name</mat-hint>
+  </mat-form-field>
+
+  <!-- Username -->
+  <mat-form-field
+    appearance="outline"
+    style="margin-top: 5px; margin-right: 5px; margin-left: 5px"
+  >
+    <mat-label>Username</mat-label>
+    <input matInput placeholder="Username" [(ngModel)]="student.username" />
+    <mat-hint>username</mat-hint>
+  </mat-form-field>
+
+  <!-- Email -->
+  <mat-form-field
+    appearance="outline"
+    style="margin-top: 5px; margin-right: 5px; margin-left: 5px"
+  >
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="Email" [(ngModel)]="student.email" />
+    <mat-hint>email</mat-hint>
+  </mat-form-field>
+
+  <!-- Age -->
+  <mat-form-field
+    appearance="outline"
+    style="margin-top: 5px; margin-right: 5px; margin-left: 5px"
+  >
+    <mat-label>Age</mat-label>
+    <input matInput placeholder="Age" [(ngModel)]="student.age" />
+    <mat-hint>age</mat-hint>
+  </mat-form-field>
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  <div style="display: flex; flex-grow: initial">
+    <button mat-flat-button color="primary" (click)="save()">
+      Update Student
+    </button>
+    <button mat-flat-button color="warn" (click)="goBack()">Go Back</button>
   </div>
 </div>
-
-<button type="button" (click)="save()">save</button>
-
-<button type="button" (click)="goBack()">go back</button>

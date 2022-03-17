@@ -16,6 +16,20 @@ import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { StudentSearchComponent } from './student-search/student-search.component';
 
+// angular material imports
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +37,7 @@ import { StudentSearchComponent } from './student-search/student-search.componen
     StudentDetailComponent,
     MessagesComponent,
     DashboardComponent,
-    StudentSearchComponent
+    StudentSearchComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +50,21 @@ import { StudentSearchComponent } from './student-search/student-search.componen
     // Remove it when a real server is ready to receive requests.
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
-    )
+    ),
+
+    MatButtonModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSidenavModule,
+    MatDividerModule,
+    MatListModule,
+    MatExpansionModule,
+    MatToolbarModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+ 
   ],
   providers: [],
   bootstrap: [AppComponent]
