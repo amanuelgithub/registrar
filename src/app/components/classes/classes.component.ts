@@ -1,10 +1,10 @@
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
-import { MessageService } from '../services/message.service';
+import { MessageService } from '../../services/message.service';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
-import { Class } from '../interfaces/class';
-import { ClassService } from '../services/class.service';
+import { Class } from '../../interfaces/class';
+import { ClassService } from '../../services/class.service';
 
 
 @Component({

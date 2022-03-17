@@ -6,15 +6,14 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { AppComponent } from './components/app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { StudentsComponent } from './students/students.component';
+import { StudentsComponent } from './components/students/students.component';
 
 import { FormsModule } from '@angular/forms';
-import { StudentDetailComponent } from './student-detail/student-detail.component';
-import { MessagesComponent } from './messages/messages.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { StudentSearchComponent } from './student-search/student-search.component';
+import { StudentDetailComponent } from './components/student-detail/student-detail.component';
+import { MessagesComponent } from './components/messages/messages.component';
+import { StudentSearchComponent } from './components/student-search/student-search.component';
 
 // angular material imports
 import { MatButtonModule } from '@angular/material/button';
@@ -29,8 +28,9 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-import { CoursesComponent } from './courses/courses.component';
-import { ClassesComponent } from './classes/classes.component';
+import { CoursesComponent } from './components/courses/courses.component';
+import { ClassesComponent } from './components/classes/classes.component';
+import { TestsComponent } from './components/tests/tests.component';
 
 @NgModule({
   declarations: [
@@ -38,10 +38,10 @@ import { ClassesComponent } from './classes/classes.component';
     StudentsComponent,
     StudentDetailComponent,
     MessagesComponent,
-    DashboardComponent,
     StudentSearchComponent,
     CoursesComponent,
     ClassesComponent,
+    TestsComponent,
   ],
   imports: [
     BrowserModule,
