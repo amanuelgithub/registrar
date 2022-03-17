@@ -30,6 +30,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { CoursesComponent } from './courses/courses.component';
+import { ClassesComponent } from './classes/classes.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { CoursesComponent } from './courses/courses.component';
     DashboardComponent,
     StudentSearchComponent,
     CoursesComponent,
+    ClassesComponent,
   ],
   imports: [
     BrowserModule,

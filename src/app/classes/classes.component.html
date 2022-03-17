@@ -8,13 +8,13 @@
       mat-fab
       color="primary"
       aria-label="Example icon button with a delete icon"
-      (click)="addCourseToggler = !addCourseToggler"
+      (click)="addClassToggler = !addClassToggler"
     >
       <mat-icon>add</mat-icon>
     </button>
 
     <div
-      *ngIf="addCourseToggler"
+      *ngIf="addClassToggler"
       style="
         display: flex;
         flex-direction: column;
@@ -29,8 +29,8 @@
         style="margin-top: 5px; margin-right: 5px; margin-left: 5px"
       >
         <!-- First name -->
-        <mat-label>Course Name</mat-label>
-        <input matInput placeholder="Course Name" #name />
+        <mat-label>Class Name</mat-label>
+        <input matInput placeholder="Class Name" #name />
         <mat-hint>course name</mat-hint>
       </mat-form-field>
 
@@ -42,7 +42,7 @@
         <button
           mat-flat-button
           color="warn"
-          (click)="addCourseToggler = !addCourseToggler"
+          (click)="addClassToggler = !addClassToggler"
         >
           Cancel
         </button>
@@ -57,9 +57,9 @@
       <td mat-cell *matCellDef="let row">{{ row.id }}</td>
     </ng-container>
 
-    <!-- Course Name Column -->
+    <!-- Class Name Column -->
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Course Name</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Class Name</th>
       <td mat-cell *matCellDef="let row">{{ row.name }}%</td>
     </ng-container>
 
@@ -67,7 +67,7 @@
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef>Action</th>
       <td mat-cell *matCellDef="let row" class="action-link">
-        <a mat-flat-button color="primary" routerLink="/courses/{{ row.id }}"
+        <a mat-flat-button color="primary" routerLink="/classes/{{ row.id }}"
           >Edit</a
         >
         |

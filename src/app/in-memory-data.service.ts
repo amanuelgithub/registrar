@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
+import { Class } from './interfaces/class';
 import { Course } from './interfaces/course';
 import { Student } from './interfaces/student';
 
@@ -27,12 +28,22 @@ export class InMemoryDataService implements InMemoryDbService {
         {id: 3, name: 'Computer Graphics'},
         {id: 4, name: 'Software Design and Development'},
     ]
+    
 
-    return {students, courses};
+  const classes = [
+        {id: 1, name: 'A'},
+        {id: 2, name: 'B'},
+        {id: 3, name: 'C'},
+        {id: 4, name: 'D'},
+        {id: 5, name: 'E'},
+        {id: 6, name: 'F'},
+    ]
+
+    return {students, courses, classes};
   }
 
    // Overrides the genId method to ensure that a students always has an id.
-  genId<T extends Student | Course>(myTable: T[]): number{
+  genId<T extends Student | Course | Class>(myTable: T[]): number{
     return myTable.length > 0 ? Math.max(...myTable.map(student => student.id)) + 1 : 1;
   }
 
