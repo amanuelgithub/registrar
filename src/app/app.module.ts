@@ -33,6 +33,7 @@ import { ClassesComponent } from './components/classes/classes.component';
 import { TestsComponent } from './components/tests/tests.component';
 import { CourseDetailComponent } from './components/course-detail/course-detail.component';
 import { ClassDetailComponent } from './components/class-detail/class-detail.component';
+import { TestDetailComponent } from './components/test-detail/test-detail.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { ClassDetailComponent } from './components/class-detail/class-detail.com
     TestsComponent,
     CourseDetailComponent,
     ClassDetailComponent,
+    TestDetailComponent,
   ],
   imports: [
     BrowserModule,
