@@ -11,23 +11,113 @@ import { Test } from './interfaces/test';
 export class InMemoryDataService implements InMemoryDbService {
 
   createDb(){
+    // const students = [
+    //     {id: 1, firstName: 'Amanuel',lastName: 'Girma', username: '@aman', email: 'aman@gmail.com', age: 23},
+    //     {id: 2, firstName: 'ahhda',lastName: 'fafa', username: '@amfafafan', email: 'fa@gmail.com', age: 23},
+    //     {id: 3, firstName: 'hhalfaf',lastName: 'Girma', username: '@aman', email: 'sthg@gmail.com', age: 23},
+    //     {id: 4, firstName: 'af',lastName: 'Girma', username: '@aman', email: 'legen@gmail.com', age: 23},
+    //     {id: 5, firstName: 'Amanuel',lastName: 'Girma', username: '@aman', email: 'rand@gmail.com', age: 23},
+    //     {id: 6, firstName: 'Belachew',lastName: 'Dagachew', username: '@aman', email: 'new@gmail.com', age: 23},
+    //     {id: 7, firstName: 'Amanuel',lastName: 'Girma', username: '@aman', email: 'aman@gmail.com', age: 23},
+    //     {id: 8, firstName: 'last',lastName: 'Girma', username: '@aman', email: 'aman@gmail.com', age: 23},
+    // ];
+
     const students = [
-        {id: 1, firstName: 'Amanuel',lastName: 'Girma', username: '@aman', email: 'aman@gmail.com', age: 23},
-        {id: 2, firstName: 'ahhda',lastName: 'fafa', username: '@amfafafan', email: 'fa@gmail.com', age: 23},
-        {id: 3, firstName: 'hhalfaf',lastName: 'Girma', username: '@aman', email: 'sthg@gmail.com', age: 23},
-        {id: 4, firstName: 'af',lastName: 'Girma', username: '@aman', email: 'legen@gmail.com', age: 23},
-        {id: 5, firstName: 'Amanuel',lastName: 'Girma', username: '@aman', email: 'rand@gmail.com', age: 23},
-        {id: 6, firstName: 'Belachew',lastName: 'Dagachew', username: '@aman', email: 'new@gmail.com', age: 23},
-        {id: 7, firstName: 'Amanuel',lastName: 'Girma', username: '@aman', email: 'aman@gmail.com', age: 23},
-        {id: 8, firstName: 'last',lastName: 'Girma', username: '@aman', email: 'aman@gmail.com', age: 23},
+        {
+            id: 1, 
+            firstName: 'Amanuel',
+            lastName: 'Girma', 
+            username: '@aman', 
+            email: 'aman@gmail.com',
+            age: 23, 
+            sex: 'Male',
+            studClass: {id: 1, name: 'A'},
+            courses: [
+                {
+                    id: 1, 
+                    name: 'Fundamentals of Programming',
+                    des: 'des', 
+                    tests: [
+                        {id: 1, num: 1, time: '12/12/2022', result: 10},
+                        {id: 2, num: 2, time: '12/12/2022', result: 10},
+                        {id: 3, num: 3, time: '1/12/2022', result: 10},
+                    ]    
+                },
+                {
+                    id: 2, 
+                    name: 'Object Oriented Programming', 
+                    des: 'des'
+                },
+            ],
+            startingYear: '20/2/2022',
+            endingYear: '20/2/2022',
+        },
+        {
+            id: 2, 
+            firstName: 'Amanuel',
+            lastName: 'Girma', 
+            username: '@aman', 
+            email: 'aman@gmail.com',
+            age: 23, 
+            sex: 'Male',
+            studClass: {id: 1, name: 'A'},
+            courses: [
+                {
+                    id: 1, 
+                    name: 'Fundamentals of Programming',
+                    des: 'des', 
+                    tests: [
+                        {id: 1, num: 1, time: '12/12/2022', result: 10},
+                        {id: 2, num: 2, time: '12/12/2022', result: 10},
+                        {id: 3, num: 3, time: '1/12/2022', result: 10},
+                    ]    
+                },
+                {
+                    id: 2, 
+                    name: 'Object Oriented Programming', 
+                    des: 'des'
+                },
+            ],
+            startingYear: '20/2/2022',
+            endingYear: '20/2/2022',
+        },
+        {
+            id: 3, 
+            firstName: 'Amanuel',
+            lastName: 'Girma', 
+            username: '@aman', 
+            email: 'aman@gmail.com',
+            age: 23, 
+            sex: 'Male',
+            studClass: {id: 1, name: 'A'},
+            courses: [
+                {
+                    id: 1, 
+                    name: 'Fundamentals of Programming',
+                    des: 'des', 
+                    tests: [
+                        {id: 1, num: 1, time: '12/12/2022', result: 10},
+                        {id: 2, num: 2, time: '12/12/2022', result: 10},
+                        {id: 3, num: 3, time: '1/12/2022', result: 10},
+                    ]    
+                },
+                {
+                    id: 2, 
+                    name: 'Object Oriented Programming', 
+                    des: 'des'
+                },
+            ],
+            startingYear: '20/2/2022',
+            endingYear: '20/2/2022',
+        },
     ];
 
 
     const courses = [
-        {id: 1, name: 'Fundamentals of Programming'},
-        {id: 2, name: 'Object Oriented Programming'},
-        {id: 3, name: 'Computer Graphics'},
-        {id: 4, name: 'Software Design and Development'},
+        {id: 1, name: 'Fundamentals of Programming', des: 'des'},
+        {id: 2, name: 'Object Oriented Programming', des: 'des'},
+        {id: 3, name: 'Computer Graphics', des: 'des'},
+        {id: 4, name: 'Software Design and Development', des: 'des'},
     ]
     
 
@@ -41,13 +131,13 @@ export class InMemoryDataService implements InMemoryDbService {
     ]
   
   const tests = [
-        {id: 1, num: 3, time: '01/12/2022'},
-        {id: 2, num: 4,time: '01/12/2022'},
-        {id: 3, num: 1,time: '01/12/2022'},
-        {id: 4, num: 3,time: '02/03/2022'},
-        {id: 5, num: 5,time: '05/05/2022'},
-        {id: 6, num: 1,time: '11/11/2022'},
-    ]
+    {id: 1, num: 3, time: '01/12/2022'},
+    {id: 2, num: 4,time: '01/12/2022'},
+    {id: 3, num: 1,time: '01/12/2022'},
+    {id: 4, num: 3,time: '02/03/2022'},
+    {id: 5, num: 5,time: '05/05/2022'},
+    {id: 6, num: 1,time: '11/11/2022'},
+  ]
 
 
     return {students, courses, classes, tests};
