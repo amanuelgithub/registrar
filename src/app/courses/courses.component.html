@@ -1,0 +1,93 @@
+<div class="mat-elevation-z8 data-table">
+  <!-- student search -->
+  <!-- <app-student-search></app-student-search> -->
+  <!-- end of student search -->
+
+  <div>
+    <button
+      mat-fab
+      color="primary"
+      aria-label="Example icon button with a delete icon"
+      (click)="addCourseToggler = !addCourseToggler"
+    >
+      <mat-icon>add</mat-icon>
+    </button>
+
+    <div
+      *ngIf="addCourseToggler"
+      style="
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        /* align-items: flex-start; */
+        width: 80%;
+      "
+    >
+      <mat-form-field
+        appearance="outline"
+        style="margin-top: 5px; margin-right: 5px; margin-left: 5px"
+      >
+        <!-- First name -->
+        <mat-label>Course Name</mat-label>
+        <input matInput placeholder="Course Name" #name />
+        <mat-hint>course name</mat-hint>
+      </mat-form-field>
+
+      <!-- (click) passes input value to add() and then clears the input -->
+      <div style="display: flex; flex-grow: initial">
+        <button mat-flat-button color="primary" (click)="add(name.value)">
+          Add Student
+        </button>
+        <button
+          mat-flat-button
+          color="warn"
+          (click)="addCourseToggler = !addCourseToggler"
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <table mat-table [dataSource]="dataSource" matSort>
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+      <td mat-cell *matCellDef="let row">{{ row.id }}</td>
+    </ng-container>
+
+    <!-- Course Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Course Name</th>
+      <td mat-cell *matCellDef="let row">{{ row.name }}%</td>
+    </ng-container>
+
+    <!-- Action Column -->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>Action</th>
+      <td mat-cell *matCellDef="let row" class="action-link">
+        <a mat-flat-button color="primary" routerLink="/students/{{ row.id }}"
+          >Edit</a
+        >
+        |
+        <a
+          mat-flat-button
+          color="warn"
+          title="delete student"
+          (click)="delete(row)"
+        >
+          Delete
+        </a>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    aria-label="Select page of Students"
+  ></mat-paginator>
+</div>

@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Student } from '../student';
+import { Student } from '../interfaces/student';
 
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { StudentService } from '../student.service';
+import { StudentService } from '../services/student.service';
 
 
 @Component({

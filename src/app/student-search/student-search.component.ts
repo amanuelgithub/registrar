@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 
-import { Student } from '../student';
-import { StudentService } from '../student.service';
+import { Student } from '../interfaces/student';
+import { StudentService } from '../services/student.service';
 
 @Component({
   selector: 'app-student-search',
