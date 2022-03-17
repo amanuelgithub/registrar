@@ -1,1 +1,114 @@
-<p>tests works!</p>
+<div class="mat-elevation-z8 data-table">
+  <!-- student search -->
+  <!-- <app-student-search></app-student-search> -->
+  <!-- end of student search -->
+
+  <div>
+    <button
+      mat-fab
+      color="primary"
+      aria-label="Example icon button with a delete icon"
+      (click)="addTestToggler = !addTestToggler"
+    >
+      <mat-icon>add</mat-icon>
+    </button>
+
+    <div
+      *ngIf="addTestToggler"
+      style="
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        /* align-items: flex-start; */
+        width: 80%;
+      "
+    >
+      <mat-form-field
+        appearance="outline"
+        style="margin-top: 5px; margin-right: 5px; margin-left: 5px"
+      >
+        <!-- test number -->
+        <mat-label>Test Number</mat-label>
+        <input matInput placeholder="Test Name" #num />
+        <mat-hint>test number</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field
+        appearance="outline"
+        style="margin-top: 5px; margin-right: 5px; margin-left: 5px"
+      >
+        <!-- Test time -->
+        <mat-label>Test Time</mat-label>
+        <input matInput placeholder="Test Name" #time />
+        <mat-hint>test number</mat-hint>
+      </mat-form-field>
+
+      <!-- (click) passes input value to add() and then clears the input -->
+      <div style="display: flex; flex-grow: initial">
+        <button
+          mat-flat-button
+          color="primary"
+          (click)="add(num.value, time.value)"
+        >
+          Add Test
+        </button>
+        <button
+          mat-flat-button
+          color="warn"
+          (click)="addTestToggler = !addTestToggler"
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- START TABLE -->
+  <table mat-table [dataSource]="dataSource" matSort>
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+      <td mat-cell *matCellDef="let row">{{ row.id }}</td>
+    </ng-container>
+
+    <!-- Test Number Column -->
+    <ng-container matColumnDef="num">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Test Number</th>
+      <td mat-cell *matCellDef="let row">{{ row.num }}</td>
+    </ng-container>
+
+    <!-- Test Time Column -->
+    <ng-container matColumnDef="time">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Test Time</th>
+      <td mat-cell *matCellDef="let row">{{ row.time }}</td>
+    </ng-container>
+
+    <!-- Action Column -->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>Action</th>
+      <td mat-cell *matCellDef="let row" class="action-link">
+        <a mat-flat-button color="primary" routerLink="/courses/{{ row.id }}"
+          >Edit</a
+        >
+        |
+        <a
+          mat-flat-button
+          color="warn"
+          title="delete student"
+          (click)="delete(row)"
+        >
+          Delete
+        </a>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    aria-label="Select page of Students"
+  ></mat-paginator>
+</div>

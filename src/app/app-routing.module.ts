@@ -5,12 +5,14 @@ import { StudentDetailComponent } from './components/student-detail/student-deta
 import { AppComponent } from './components/app.component';
 import { CoursesComponent } from './components/courses/courses.component';
 import { ClassesComponent } from './components/classes/classes.component';
+import { TestsComponent } from './components/tests/tests.component';
 
 const routes: Routes = [
   {path: 'students', component: StudentsComponent},
   {path: 'students/:id', component: StudentDetailComponent},
   {path: 'courses', component: CoursesComponent},
   {path: 'classes', component: ClassesComponent},
+  {path: 'tests', component: TestsComponent},
 ];
 
 @NgModule({

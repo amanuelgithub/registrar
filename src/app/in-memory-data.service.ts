@@ -3,6 +3,7 @@ import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { Class } from './interfaces/class';
 import { Course } from './interfaces/course';
 import { Student } from './interfaces/student';
+import { Test } from './interfaces/test';
 
 @Injectable({
   providedIn: 'root'
@@ -38,13 +39,23 @@ export class InMemoryDataService implements InMemoryDbService {
         {id: 5, name: 'E'},
         {id: 6, name: 'F'},
     ]
+  
+  const tests = [
+        {id: 1, num: 3, time: '01/12/2022'},
+        {id: 2, num: 4,time: '01/12/2022'},
+        {id: 3, num: 1,time: '01/12/2022'},
+        {id: 4, num: 3,time: '02/03/2022'},
+        {id: 5, num: 5,time: '05/05/2022'},
+        {id: 6, num: 1,time: '11/11/2022'},
+    ]
 
-    return {students, courses, classes};
+
+    return {students, courses, classes, tests};
   }
 
    // Overrides the genId method to ensure that a students always has an id.
-  genId<T extends Student | Course | Class>(myTable: T[]): number{
-    return myTable.length > 0 ? Math.max(...myTable.map(student => student.id)) + 1 : 1;
+  genId<T extends Student | Course | Class | Test>(myTable: T[]): number{
+    return myTable.length > 0 ? Math.max(...myTable.map(table => table.id)) + 1 : 1;
   }
 
 // Overrides the genId method to ensure that a students always has an id.
