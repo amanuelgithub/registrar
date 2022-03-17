@@ -1,0 +1,30 @@
+<div
+  *ngIf="course"
+  style="
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    width: 80%;
+  "
+>
+  <h2>{{ course.name | uppercase }} Details</h2>
+
+  <mat-form-field
+    appearance="outline"
+    style="margin-top: 5px; margin-right: 5px; margin-left: 5px"
+  >
+    <!-- First name -->
+    <mat-label>Course Name</mat-label>
+    <input matInput placeholder="Course Name" [(ngModel)]="course.name" />
+    <mat-hint>course name</mat-hint>
+  </mat-form-field>
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  <div style="display: flex; flex-grow: initial">
+    <button mat-flat-button color="primary" (click)="save()">
+      Update Course
+    </button>
+    <button mat-flat-button color="warn" (click)="goBack()">Go Back</button>
+  </div>
+</div>

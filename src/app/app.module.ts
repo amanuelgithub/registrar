@@ -31,6 +31,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { CoursesComponent } from './components/courses/courses.component';
 import { ClassesComponent } from './components/classes/classes.component';
 import { TestsComponent } from './components/tests/tests.component';
+import { CourseDetailComponent } from './components/course-detail/course-detail.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { TestsComponent } from './components/tests/tests.component';
     CoursesComponent,
     ClassesComponent,
     TestsComponent,
+    CourseDetailComponent,
   ],
   imports: [
     BrowserModule,
