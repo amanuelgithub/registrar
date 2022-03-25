@@ -34,9 +34,23 @@
         <mat-hint>course name</mat-hint>
       </mat-form-field>
 
+      <!-- Course Description -->
+      <mat-form-field
+        appearance="outline"
+        style="margin-top: 5px; margin-right: 5px; margin-left: 5px"
+      >
+        <mat-label>Course Description</mat-label>
+        <textarea matInput placeholder="Course Name" #des></textarea>
+        <mat-hint>course description</mat-hint>
+      </mat-form-field>
+
       <!-- (click) passes input value to add() and then clears the input -->
       <div style="display: flex; flex-grow: initial">
-        <button mat-flat-button color="primary" (click)="add(name.value)">
+        <button
+          mat-flat-button
+          color="primary"
+          (click)="add(name.value, des.value)"
+        >
           Add Course
         </button>
         <button
@@ -61,6 +75,14 @@
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Course Name</th>
       <td mat-cell *matCellDef="let row">{{ row.name }}</td>
+    </ng-container>
+
+    <!-- Course Name Column -->
+    <ng-container matColumnDef="des">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Course Description
+      </th>
+      <td mat-cell *matCellDef="let row">{{ row.des }}</td>
     </ng-container>
 
     <!-- Action Column -->

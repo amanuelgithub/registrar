@@ -1,6 +1,6 @@
-import { Class } from "./interfaces/class";
+import { StudClass } from "./interfaces/class";
 
-export const CLASSES: Class[] = [
+export const CLASSES: StudClass[] = [
     {id: 1, name: 'A'},
     {id: 2, name: 'B'},
     {id: 3, name: 'C'},

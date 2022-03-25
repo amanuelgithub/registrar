@@ -20,6 +20,20 @@
     <mat-hint>course name</mat-hint>
   </mat-form-field>
 
+  <!-- Course Description -->
+  <mat-form-field
+    appearance="outline"
+    style="margin-top: 5px; margin-right: 5px; margin-left: 5px"
+  >
+    <mat-label>Course Description</mat-label>
+    <textarea
+      matInput
+      placeholder="Course Name"
+      [(ngModel)]="course.des"
+    ></textarea>
+    <mat-hint>course description</mat-hint>
+  </mat-form-field>
+
   <!-- (click) passes input value to add() and then clears the input -->
   <div style="display: flex; flex-grow: initial">
     <button mat-flat-button color="primary" (click)="save()">

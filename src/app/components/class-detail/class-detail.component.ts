@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { Class } from 'src/app/interfaces/class';
+import { StudClass } from 'src/app/interfaces/class';
 import { ClassService } from 'src/app/services/class.service';
 
 
@@ -14,7 +14,7 @@ import { ClassService } from 'src/app/services/class.service';
 })
 export class ClassDetailComponent implements OnInit {
 
-  clas?: Class;
+  clas?: StudClass;
 
   constructor(
     private route: ActivatedRoute,

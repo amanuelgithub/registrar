@@ -4,17 +4,15 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-content: center;
-    width: 80%;
+    margin: 40px auto;
   "
 >
   <h2>{{ student.firstName | uppercase }} Details</h2>
-
+  <!-- First Name -->
   <mat-form-field
     appearance="outline"
     style="margin-top: 5px; margin-right: 5px; margin-left: 5px"
   >
-    <!-- First name -->
     <mat-label>First Name</mat-label>
     <input matInput placeholder="First Name" [(ngModel)]="student.firstName" />
     <mat-hint>first name</mat-hint>
@@ -58,6 +56,46 @@
     <mat-label>Age</mat-label>
     <input matInput placeholder="Age" [(ngModel)]="student.age" />
     <mat-hint>age</mat-hint>
+  </mat-form-field>
+
+  <!-- Class -->
+  <mat-form-field appearance="outline">
+    <mat-label>Class</mat-label>
+    <mat-select [(ngModel)]="student.studClass" name="clasesList">
+      <mat-option *ngFor="let clas of student.studClass" [value]="clas">
+        {{ clas.name }}
+      </mat-option>
+    </mat-select>
+    <p>
+      Selected Class: {{ student.studClass ? student.studClass.name : "none" }}
+    </p>
+  </mat-form-field>
+  <!-- Course -->
+  <mat-form-field appearance="outline">
+    <mat-label>Courses</mat-label>
+    <mat-select
+      [formControl]="student.courses"
+      [(ngModel)]="student.courses"
+      multiple
+      selected
+    >
+      <mat-select-trigger>
+        {{ student.courses ? student.courses[0].name : "" }}
+        <span
+          *ngIf="student.courses?.length > 1"
+          class="example-additional-selection"
+        >
+          (+{{ student.courses.length - 1 }}
+          {{ student.courses?.length === 2 ? "other" : "others" }})
+        </span>
+      </mat-select-trigger>
+      <mat-option
+        *ngFor="let course of student.courses"
+        selected
+        [value]="course"
+        >{{ course.name }}
+      </mat-option>
+    </mat-select>
   </mat-form-field>
 
   <!-- (click) passes input value to add() and then clears the input -->

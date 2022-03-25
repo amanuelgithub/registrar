@@ -1,10 +1,15 @@
 .data-table {
   width: 90%;
-  margin: 20px auto;
 }
 
 table {
-  width: 100%;
+  width: 110%;
+}
+
+.example-container {
+  width: 1200px;
+  max-width: 100%;
+  overflow: auto;
 }
 
 /* ::ng-deep .mat-form-field-flex > .mat-form-field-infix {

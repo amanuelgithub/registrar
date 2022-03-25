@@ -1,4 +1,4 @@
-import { Class } from "./class";
+import { StudClass } from "./class";
 import { Course } from "./course";
 
 export interface Student {
@@ -9,7 +9,7 @@ export interface Student {
     email: string,
     age: number,
     sex?: string,
-    studClass?: Class, //interface
+    studClass?: StudClass, //interface
     courses?: Course[],
     startingYear?: string,
     endingYear?: string,

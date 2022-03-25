@@ -3,7 +3,7 @@ import { MessageService } from '../../services/message.service';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
-import { Class } from '../../interfaces/class';
+import { StudClass } from '../../interfaces/class';
 import { ClassService } from '../../services/class.service';
 
 
@@ -15,7 +15,7 @@ import { ClassService } from '../../services/class.service';
 export class ClassesComponent implements OnInit, AfterViewInit {
 
   displayedColumns: string[] = ['id', 'name', 'action'];
-  dataSource = new MatTableDataSource<Class>();
+  dataSource = new MatTableDataSource<StudClass>();
 
   addClassToggler = false;
 
@@ -42,13 +42,13 @@ export class ClassesComponent implements OnInit, AfterViewInit {
   add(name: string): void{
     name = name.trim();
     if(!name) {return;};
-    this.classService.addClass({name} as Class)
+    this.classService.addClass({name} as StudClass)
         .subscribe(c => {
           this.dataSource.data = [c, ...this.dataSource.data];
         });
   }
 
-  delete(c: Class): void {
+  delete(c: StudClass): void {
     this.dataSource.data = this.dataSource.data.filter(h => h !== c);
     this.classService.deleteClass(c.id).subscribe();
   }

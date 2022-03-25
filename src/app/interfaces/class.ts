@@ -1,4 +1,4 @@
-export interface Class{
+export interface StudClass{
     id: number,
     name: string,
 }

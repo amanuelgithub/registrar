@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import { Class } from '../interfaces/class';
+import { StudClass } from '../interfaces/class';
 import { MessageService } from './message.service';
 
 @Injectable({
@@ -24,15 +24,15 @@ export class ClassService {
   
 
   /** POST: add a new class to the server */
-  addClass(newClass: Class): Observable<Class> {
-    return this.http.post<Class>(this.classesUrl, newClass, this.httpOptions).pipe(
-      tap((newClass: Class) => this.log(`added class w/ id=${newClass.id}`)),
-      catchError(this.handleError<Class>('addClass'))
+  addClass(newClass: StudClass): Observable<StudClass> {
+    return this.http.post<StudClass>(this.classesUrl, newClass, this.httpOptions).pipe(
+      tap((newClass: StudClass) => this.log(`added class w/ id=${newClass.id}`)),
+      catchError(this.handleError<StudClass>('addClass'))
     );
   }
   
   /** PUT: update the class on the server */
-  updateClass(newClass: Class): Observable<any> {
+  updateClass(newClass: StudClass): Observable<any> {
     return this.http.put(this.classesUrl, newClass, this.httpOptions).pipe(
       tap(_ => this.log(`updated hero id=${newClass.id}`)),
       catchError(this.handleError<any>('updateClass'))
@@ -40,30 +40,30 @@ export class ClassService {
   }
 
   /** GET heroes from the server */
-  getClasss() : Observable <Class[]> {
-    return this.http.get<Class[]>(this.classesUrl).pipe(
+  getClasss() : Observable <StudClass[]> {
+    return this.http.get<StudClass[]>(this.classesUrl).pipe(
       tap(_=> this.log('fetched classes.')),
-      catchError(this.handleError<Class[]>('getClasss', []))
+      catchError(this.handleError<StudClass[]>('getClasss', []))
     );
   }
 
   /** GET class by id. Will 404 if id not found */
-  getClass(id: number) : Observable<Class>{
+  getClass(id: number) : Observable<StudClass>{
     const url = `${this.classesUrl}/${id}`;
 
-    return this.http.get<Class>(url).pipe(
+    return this.http.get<StudClass>(url).pipe(
       tap(_ => this.log(`fetched hero id=${id}`)),
-      catchError(this.handleError<Class>(`getHero id=${id}`))
+      catchError(this.handleError<StudClass>(`getHero id=${id}`))
     );
   }
 
   /** DELETE: delete the class from the server */
-  deleteClass(id: number): Observable<Class> {
+  deleteClass(id: number): Observable<StudClass> {
     const url = `${this.classesUrl}/${id}`;
 
-    return this.http.delete<Class>(url, this.httpOptions).pipe(
+    return this.http.delete<StudClass>(url, this.httpOptions).pipe(
       tap(_ => this.log(`deleted class id=${id}`)),
-      catchError(this.handleError<Class>('deleteClass'))
+      catchError(this.handleError<StudClass>('deleteClass'))
     );
   }
 
